@@ -5,15 +5,14 @@ var path = require('path');
 var serveStatic = require('serve-static');
 
 app = express ();
-app.use(serveStatic(__dirname));
+app.use(express.static('dist/spa'));
 
-app.get('*', function (req, res) {
-    const index = path.join(__dirname, '/dist/spa');
-    console.log(index);
-    res.sendFile(index)
+app.all('/*', function(req, res) {
+    console.log(path.resolve('dist/spa/index.html'))
+    res.sendFile(path.resolve('dist/spa/index.html'));
 });
 
-var port = process.env.PORT || 21058;
+var port = process.env.PORT || 8082;
 // passa a porta definida no Express e levantamento do servidor
 app.listen(port);
 console.log ('Servidor client iniciado na porta ' + port + '.');
