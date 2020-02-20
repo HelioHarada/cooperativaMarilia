@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpR fFf">
+  <q-layout view="hHr lpR fFf">
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title>Cooperativa Sul Brasil</q-toolbar-title>
@@ -11,6 +11,7 @@
           icon="menu"
           aria-label="Menu"
         />
+
       </q-toolbar>
     </q-header>
 
@@ -21,6 +22,7 @@
       content-class="bg-grey-1"
       side="right"
     >
+
       <q-list>
         <q-item-label header class="text-grey-8">Menu</q-item-label>
 

@@ -8,7 +8,7 @@ app = express ();
 app.use(express.static('dist/spa'));
 
 app.all('/*', function(req, res) {
-    console.log(path.resolve('dist/spa/index.html'))
+
     res.sendFile(path.resolve('dist/spa/index.html'));
 });
 
