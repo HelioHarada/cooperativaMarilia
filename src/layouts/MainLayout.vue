@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHr lpR fFf">
+  <q-layout view="hHh lpr fFf">
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title>Cooperativa Sul Brasil</q-toolbar-title>
@@ -18,6 +18,7 @@
     <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
+
       bordered
       content-class="bg-grey-1"
       side="right"

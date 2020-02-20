@@ -12,7 +12,7 @@
 </template>
 <script>
 export default {
-  name: 'menu',
+  name: 'MenuList',
   props: {
     title: {
       type: String,
