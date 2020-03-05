@@ -2,6 +2,7 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
 module.exports = function (ctx) {
+
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -61,13 +62,22 @@ module.exports = function (ctx) {
       showProgress: true,
       gzip: false,
       analyze: false,
+
+      env: ctx.dev
+      ? {
+        API: JSON.stringify('http://localhost:8081/')
+      } : {
+        API: JSON.stringify('https://cooperativasulbrasil-api.herokuapp.com/')
+      },
       // Options below are automatically set depending on the env, set them if you want to override
       // preloadChunks: false,
       // extractCSS: false,
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
       extendWebpack (cfg) {
+
       }
+
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer

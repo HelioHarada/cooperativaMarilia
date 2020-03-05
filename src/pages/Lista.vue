@@ -1,6 +1,8 @@
 <template>
   <q-page padding>
+    {{api}}
     <div class="q-pa-md row q-gutter-xl">
+
       <div v-if="!doencas">
         <q-btn class="justify-center" @click="getDoenca()" label="Carregar" />
       </div>
@@ -38,6 +40,7 @@ export default {
       doencas: {},
       expanded: false,
       id: null,
+      api: process.env.API,
       token: "24b1a440-6bae-34e9-bffd-b0eb8c0d3cdf"
     };
   },
