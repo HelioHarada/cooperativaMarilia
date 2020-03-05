@@ -6,7 +6,7 @@ var serveStatic = require('serve-static');
 history = require('connect-history-api-fallback'),
 
 app = express ();
-app.use(express.static('/*'));
+
 
 app.use(history())
 app.use(serveStatic(__dirname + '/dist/spa'))
