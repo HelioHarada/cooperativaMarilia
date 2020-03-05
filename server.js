@@ -3,14 +3,15 @@
 var express = require('express');
 var path = require('path');
 var serveStatic = require('serve-static');
+history = require('connect-history-api-fallback'),
 
 app = express ();
 app.use(express.static('/*'));
 
-app.all('/*', function(req, res) {
+app.use(history())
+app.use(serveStatic(__dirname + '/dist/spa'))
 
-    res.sendFile(path.resolve('/index.html'));
-});
+
 
 var port = process.env.PORT || 8181;
 // passa a porta definida no Express e levantamento do servidor
