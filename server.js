@@ -5,11 +5,11 @@ var path = require('path');
 var serveStatic = require('serve-static');
 
 app = express ();
-app.use(express.static('dist/spa'));
+app.use(express.static('/*'));
 
 app.all('/*', function(req, res) {
 
-    res.sendFile(path.resolve('dist/spa/'));
+    res.sendFile(path.resolve('index.html'));
 });
 
 var port = process.env.PORT || 8181;
