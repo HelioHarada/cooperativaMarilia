@@ -35,34 +35,37 @@
   </q-page>
 </template>
 <script>
+import { postDoenca } from "../api/api";
 export default {
   data() {
     return {
       doenca: {
-        nome : '',
-        categoria : '',
-        descricao : '',
-        recomendacao : '',
-        imagem : '',
-
+        nome: "",
+        categoria: "",
+        descricao: "",
+        recomendacao: "",
+        imagem: ""
       },
       options: ["alface", "mamão", "milho", "soja"]
     };
   },
   methods: {
-    cadastrar() {
-      const formData = new FormData();
+    postDoenca,
 
-      formData.append("imagem", this.doenca.imagem);
-      formData.append("nome", this.doenca.nome);
-      formData.append("descricao", this.doenca.descricao);
-      formData.append("categoria", this.doenca.categoria);
-      formData.append("recomendacao", this.doenca.recomendacao);
+    async cadastrar() {
+      try {
+        const formData = new FormData();
+        formData.append("imagem", this.doenca.imagem);
+        formData.append("nome", this.doenca.nome);
+        formData.append("descricao", this.doenca.descricao);
+        formData.append("categoria", this.doenca.categoria);
+        formData.append("recomendacao", this.doenca.recomendacao);
 
-      this.$axios.post("http://localhost:8081/doenca", formData)
-        .then(function(res){
-          console.log(res)
-      })
+        const res = await this.postDoenca(formData)
+
+        console.log(res)
+
+      } catch (e) {}
     }
   }
 };

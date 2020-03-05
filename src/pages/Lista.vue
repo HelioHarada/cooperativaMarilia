@@ -13,6 +13,7 @@
           <q-card-section>
             <div class="text-h6">{{doenca.nome}}</div>
             <div class="text-subtitle2">{{doenca.categoria}}</div>
+            <div class="text-caption">Cod: {{doenca.id}}</div>
           </q-card-section>
 
           <q-card-section class="desc q-pt-none scroll">{{doenca.descricao}}</q-card-section>

@@ -7,3 +7,9 @@ export function getDoencas () {
   return this.$axios.get(url+"doenca")
 
 }
+
+export function postDoenca(data){
+  console.log(data)
+  this.$axios.post(url+"doenca", data)
+
+}
