@@ -1,10 +1,10 @@
 <template>
   <q-page padding>
-    {{api}}
+
     <div class="q-pa-md row q-gutter-xl">
 
       <div v-if="!doencas">
-        <q-btn class="justify-center" @click="getDoenca()" label="Carregar" />
+        <q-btn class="justify-center" @click="listDoenca()" label="Carregar" />
       </div>
       <div class="box-card" v-for="doenca in doencas" :key="doenca.id">
         <q-card class="my-card overflow-hidden">
@@ -34,21 +34,27 @@
   </q-page>
 </template>
 <script>
+import {getDoencas} from '../api/api'
 export default {
   data() {
     return {
       doencas: {},
       expanded: false,
       id: null,
-      api: process.env.API,
+      url: process.env.API,
       token: "24b1a440-6bae-34e9-bffd-b0eb8c0d3cdf"
     };
   },
   methods: {
-    getDoenca() {
-      this.$axios.get("http://localhost:8081/doenca").then(res => {
-        this.doencas = res.data;
-      });
+    getDoencas,
+    async listDoenca() {
+      console.log("list")
+        try{
+          const res = await this.getDoencas();
+          this.doencas = res.data;
+        }catch(e){
+
+        }
     },
     getCultura() {
       const config = {
@@ -65,7 +71,7 @@ export default {
     }
   },
   created() {
-    this.getDoenca();
+    this.listDoenca();
     // this.getCultura();
   }
 };
