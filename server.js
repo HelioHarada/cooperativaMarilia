@@ -9,7 +9,7 @@ app.use(express.static('/*'));
 
 app.all('/*', function(req, res) {
 
-    res.sendFile(path.resolve('index.html'));
+    res.sendFile(path.resolve('/index.html'));
 });
 
 var port = process.env.PORT || 8181;
