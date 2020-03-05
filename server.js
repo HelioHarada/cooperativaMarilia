@@ -12,8 +12,13 @@ app.use(history())
 app.use(serveStatic(__dirname + '/dist/spa'))
 
 
+app.all('/*', function(req, res) {
+
+  res.sendFile(path.resolve('/dist/spa/index.html'));
+});
 
 var port = process.env.PORT || 8181;
 // passa a porta definida no Express e levantamento do servidor
 app.listen(port);
 console.log ('Servidor client iniciado na porta ' + port + '.');
+
