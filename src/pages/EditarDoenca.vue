@@ -2,7 +2,7 @@
   <q-page padding>
     <div class="container q-pa-md">
       <div>
-        <h4 class="text-center">Cadastrar Doença</h4>
+        <h4 class="text-center">Editar {{doenca.nome}}</h4>
         <q-form>
           <div class="q-gutter-y-md column">
             <q-input outlined v-model="doenca.nome" label="Nome da doença" />
@@ -50,6 +50,13 @@ export default {
     };
   },
   methods: {
+    async getDoenca(){
+      const id = this.$route.params.id;
+      const res = await this.$axios.get("http://localhost:8081/doenca/"+id)
+      this.doenca = res.data[0];
+      console.log(this.doenca)
+    },
+
     cadastrar() {
       const formData = new FormData();
 
@@ -64,6 +71,9 @@ export default {
           console.log(res)
       })
     }
+  },
+  created(){
+    this.getDoenca();
   }
 };
 </script>

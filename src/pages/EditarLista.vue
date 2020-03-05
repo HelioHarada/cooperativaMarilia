@@ -1,5 +1,6 @@
 <template>
   <q-page padding>
+    <h2 class="text-center">Editar Doença</h2>
     <div class="q-pa-md row q-gutter-xl">
       <div v-if="!doencas">
         <q-btn class="justify-center" @click="getDoenca()" label="Carregar" />
@@ -18,6 +19,7 @@
           <!-- btn recomendação -->
           <q-card-actions>
             <q-btn flat color="primary" label="Recomendação" @click="id = doenca.id" />
+            <q-btn flat color="warning" label="Editar Doença" :to="{ name: 'editarDoenca', params: { id: doenca.id }}"/>
           </q-card-actions>
 
           <!-- conteudo expadandido (Recomendação) -->
@@ -37,7 +39,7 @@ export default {
     return {
       doencas: {},
       expanded: false,
-      id: null,
+      id: "x",
       token: "24b1a440-6bae-34e9-bffd-b0eb8c0d3cdf"
     };
   },
@@ -45,6 +47,7 @@ export default {
     getDoenca() {
       this.$axios.get("http://localhost:8081/doenca").then(res => {
         this.doencas = res.data;
+        console.log(this.doencas)
       });
     },
     getCultura() {
@@ -56,12 +59,14 @@ export default {
         key: "cultura"
       };
 
-      this.$axios.get("https://api.cnptia.embrapa.br/agritec/v1/", config).then(res => {
-        console.log(res.data);
-      });
+      this.$axios
+        .get("https://api.cnptia.embrapa.br/agritec/v1/", config)
+        .then(res => {
+          console.log(res.data);
+        });
     }
   },
-  created() {
+  mounted() {
     this.getDoenca();
     // this.getCultura();
   }

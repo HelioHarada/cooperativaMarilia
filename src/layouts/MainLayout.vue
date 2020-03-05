@@ -63,6 +63,12 @@ export default {
           caption: "Cadastro de doença",
           icon: "school",
           link: "/cadastrar"
+        },
+        {
+          title: "Editar doença",
+          caption: "editar doença",
+          icon: "school",
+          link: "/editarLista"
         }
       ]
     };

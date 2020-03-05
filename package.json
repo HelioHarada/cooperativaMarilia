@@ -8,6 +8,7 @@
   "author": "Harada <helioharada30@gmail.com>",
   "private": true,
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
