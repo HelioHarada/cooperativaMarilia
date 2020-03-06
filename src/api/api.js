@@ -10,6 +10,5 @@ export function getDoencas () {
 
 export function postDoenca(data){
   console.log(data)
-  this.$axios.post(url+"doenca", data)
-
+  return this.$axios.post(url+"doenca", data)
 }

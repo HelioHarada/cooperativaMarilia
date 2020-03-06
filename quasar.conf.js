@@ -67,7 +67,7 @@ module.exports = function (ctx) {
       ? {
         API: JSON.stringify('http://localhost:8081/')
       } : {
-        API: JSON.stringify('https://cooperativasulbrasil-api.herokuapp.com/')
+        API: JSON.stringify('https://cooperativasulbrasilapi.azurewebsites.net/')
       },
       // Options below are automatically set depending on the env, set them if you want to override
       // preloadChunks: false,
